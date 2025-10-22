@@ -1,9 +1,10 @@
 package pageObjects;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage {
+public class HomePage extends BasePage {
     @FindBy(xpath = "//a[contains(text(),'Home')]")
     private WebElement homeLink;
 
@@ -27,6 +28,10 @@ public class HomePage {
 
     @FindBy(xpath = "//a[@class='nav-link' and @id='signin2' and @href='#' and @data-toggle='modal' and @data-target='#signInModal']")
     private WebElement signupLink;
+
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
 
     public void clickHome() {
         homeLink.click();
